@@ -1,0 +1,19 @@
+
+
+$primary: #2276de;
+$success: #7fdaad;
+$danger: #DB0000;
+$warning: #fbd148;
+$info: #7ac9e2;
+
+.navbar {
+    padding: 0rem;
+}
+.bg-light {
+    background: radial-gradient(circle, rgb(225, 225, 225) 40%, rgba(121, 177, 240, 0.673) 100%);
+    // color: rgb(40, 99, 249)
+}
+
+
+
+@import '~bootstrap/scss/bootstrap.scss';
