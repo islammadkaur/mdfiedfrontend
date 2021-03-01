@@ -10,9 +10,6 @@ import Dashboard from '../loggedin/Dashboard'
 // import DoctorDashboard from './loggedin/DoctorDashboard'
 import SignUp from '../components/user/SignUp'
 import UserEditForm from '../components/user/UserEditForm'
-import AccountsPanel from '../components/user/AccountsPanel'
-import AccountForm from '../components/user/AccountForm'
-import AccountUpdateForm from '../components/user/AccountUpdateForm'
 import {connect} from 'react-redux'
 import {currentUser} from '../actions/userActions'
 
@@ -52,9 +49,7 @@ class UserApp extends React.Component {
             <Route exact path="/user/signup" component={SignUp} />
             <Route exact path="/user/dashboard" component={Dashboard} />
             <Route exact path="/user/edit" component={UserEditForm} /> */}
-            <Route exact path="/accounts" component={AccountsPanel} />
-            <Route exact path="/accounts/new" component={AccountForm} />
-            <Route exact path="/accounts/edit/:id" component={AccountUpdateForm} />
+
           </Switch>
         </div>
     );
