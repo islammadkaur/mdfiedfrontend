@@ -10,7 +10,7 @@ import DocSignIn from './DocSignIn'
 import SignIn from './user/SignIn'
 import SignUp from './user/SignUp'
 import Nav from 'react-bootstrap/Nav'
-import {Linkedin, Github, CameraReelsFill} from 'react-bootstrap-icons'
+import {Linkedin, Github, /*CameraReelsFill*/} from 'react-bootstrap-icons'
 import {Route, Switch} from 'react-router-dom';
 import {withRouter} from 'react-router-dom'
 

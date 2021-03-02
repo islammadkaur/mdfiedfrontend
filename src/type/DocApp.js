@@ -12,7 +12,7 @@ class DocApp extends React.Component {
 
   componentDidMount(){
     const tkn = localStorage.getItem("jwt_token")
-
+console.log('doc app');
     const fetchDoctor = () => {
         if (!tkn || !this.props.currentDoctor) {
             localStorage.removeItem("jwt_token")

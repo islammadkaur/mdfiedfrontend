@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from './home/SearchBar'
 import Title from './home/Title'
-import Results from './home/Results'
+import ResultsCon from './home/ResultsCon'
 
 class HomeContainer extends Component {
     render() {
@@ -9,7 +9,7 @@ class HomeContainer extends Component {
             <div style={{marginTop: '6%'}}>
                 <Title />
                 <SearchBar />
-                <Results />
+                <ResultsCon />
             </div>
         );
     }

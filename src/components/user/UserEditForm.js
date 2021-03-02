@@ -57,44 +57,36 @@ class UserEditForm extends React.Component {
     render(){   
         return(
             <div className="user-update-form" >
-                <Form onSubmit={this.handleSubmit} >
-                    <h1>Update your information</h1><br></br>
-                    {this.state.error ? <p className="error">{this.state.error} </p> : null}
+<Form onSubmit={this.handleSubmit} style={{marginTop:'2%'}}>
+                    <h1>Update your information</h1>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridFirstName">
                         <Form.Label>First Name</Form.Label>
-                        <Form.Control type="first_name" name="first_name" placeholder={this.state.first_name} value={this.state.first_name} readOnly/>
+                        <Form.Control style={{width: '70%', marginLeft: '15%', textAlign:'center'}} type="first_name" name="first_name" placeholder="Enter first name" value={this.state.first_name} onChange={this.handleInputChange} />
                         </Form.Group>
-
+                    </Form.Row>
+                    
+                    <Form.Row>
                         <Form.Group as={Col} controlId="formGridLastName">
                         <Form.Label>Last Name</Form.Label>
-                        <Form.Control type="last_name" name="last_name" placeholder={this.state.last_name} value={this.state.last_name} readOnly/>
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="formGridDOB">
-                        <Form.Label>Date of Birth</Form.Label>
-                        <Form.Control type="date" name="date_of_birth" placeholder={this.state.date_of_birth} value={this.state.date_of_birth} readOnly />
-                        </Form.Group>
-
-                    </Form.Row>
-
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" name="email" placeholder="Enter email" value={this.state.email} onChange={this.handleInputChange} />
+                        <Form.Control style={{width: '70%', marginLeft: '15%', textAlign:'center'}} type="last_name" name="last_name" placeholder="Enter last name" value={this.state.last_name} onChange={this.handleInputChange}/>
                         </Form.Group>
                     </Form.Row>
+
+                        <Form.Row>
+                            <Form.Group as={Col} controlId="formGridEmail">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control style={{width: '70%', marginLeft: '15%', textAlign:'center'}} type="email" name="email" placeholder="Enter your email address" value={this.state.email} onChange={this.handleInputChange} />
+                            </Form.Group>
+                        </Form.Row>
+                       
                     
                     <Form.Group controlId="formGridAddress1">
                         <Form.Label>Address</Form.Label>
-                        <Form.Control placeholder="1234 Main St" name="address" value={this.state.address} onChange={this.handleInputChange} />
-                        <Form.Text className="text-muted">
-                        We'll never share your information with anyone else.
-                        </Form.Text>
-                    </Form.Group>
-                    
+                        <Form.Control style={{width: '70%', marginLeft: '15%', textAlign:'center'}} placeholder="1234 Main St" name="address" value={this.state.address} onChange={this.handleInputChange} />
 
-                    <Form.Row>
+                    </Form.Group>
+                    <Form.Row style={{width: '70%', marginLeft: '15%', textAlign:'center'}}>
                         <Form.Group as={Col} controlId="formGridCity">
                         <Form.Label>City</Form.Label>
                         <Form.Control name="city" value={this.state.city} onChange={this.handleInputChange}/>
@@ -165,12 +157,17 @@ class UserEditForm extends React.Component {
                         </Form.Group>
                     </Form.Row>
 
-                    <Form.Group controlId="formGridAvgIncome">
-                        <Form.Label>Average Monthly Income</Form.Label>
-                        <Form.Control type="number" placeholder="Approx. monthly income" name="avg_monthly_income" value={this.state.avg_monthly_income} onChange={this.handleInputChange}/>
-                    </Form.Group>
-                    <Button onClick={() => {this.props.history.push('/dashboard')}}>Back</Button>
-                    <Button variant="success" type="submit" onClick={this.handleSubmit}>Update Information</Button>
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="formGridDOB">
+                        <Form.Label >Date of Birth</Form.Label>
+                        <Form.Control style={{width: '50%', marginLeft: '25%', textAlign:'center'}} type="date" name="date_of_birth" value={this.state.date_of_birth} onChange={this.handleInputChange} />
+                        </Form.Group>
+                    </Form.Row>
+                    
+
+                    <Button variant="primary" type="submit">
+                        Update Info
+                    </Button>
                 </Form>
             </div>
         )

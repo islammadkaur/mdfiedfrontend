@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
-import {PersonCircle, PersonBoundingBox} from 'react-bootstrap-icons'
+import {PersonBoundingBox} from 'react-bootstrap-icons'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 

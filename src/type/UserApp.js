@@ -1,13 +1,9 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {withRouter} from 'react-router-dom'
-// import './App.css';
 import NavBar from '../components/user/NavBar'
-import Footer from '../components/Footer'
 import SignIn from '../components/user/SignIn'
-// import DocSignIn from './components/DocSignIn'
 import Dashboard from '../loggedin/Dashboard'
-// import DoctorDashboard from './loggedin/DoctorDashboard'
 import SignUp from '../components/user/SignUp'
 import UserEditForm from '../components/user/UserEditForm'
 import {connect} from 'react-redux'
@@ -36,7 +32,7 @@ class UserApp extends React.Component {
       }
     }
     fetchUser()
-
+    console.log("something");
   }
 
   render(){

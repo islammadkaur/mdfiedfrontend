@@ -1,54 +1,36 @@
 import React, { Component } from 'react';
 import Table from 'react-bootstrap/Table'
 
+
 class Results extends Component {
-    constructor() {
-        super();
-        this.state = {
-            clinics: []
-        }
-    }
-    componentDidMount() {
-        const getClinics = ''
-        fetch('url')
-          .then(res => res.json())
-          .then(data => console.log(data));
-    }
-    render() {
-        return (
-            <div>
-                <Table striped bordered hover style={{width: '70%', marginLeft: '15%', marginTop: '5%', backgroundColor: '#fff'}}>
-  <thead>
-    <tr>
-      <th>1111</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1111</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>1111</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>1111</td>
-      <td>Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</Table>
-            </div>
-        );
-    }
+  handleClick = (url) => {
+    window.open('/user', "_self");
+  }
+  render() {
+    const tableList = this.props.clinic.map(x =>  
+          <tr>
+            <td>{x.name}</td>
+            <td>{x.address}, {x.city}, {x.state}, {x.zip}</td>
+            <td><button style={{borderRadius:30, backgroundColor:'#3486eb', color:'white'}} onClick={() => this.handleClick()}>Sign in to view</button></td>
+          </tr>
+          )
+    return (
+      <div>
+                  <Table striped bordered hover style={{width: '70%', marginLeft: '15%', marginTop: '2%', marginBottom: '10%', backgroundColor: '#fff', overflow: 'scroll', position: 'relative'}}>
+    <thead>
+      <tr>
+        <th>Clinic</th>
+        <th>Address</th>
+        <th>Availablity</th>
+      </tr>
+    </thead>
+    <tbody>
+  {tableList}
+    </tbody>
+  </Table>
+      </div>
+    );
+  }
 }
 
 export default Results;

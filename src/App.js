@@ -1,23 +1,21 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import {withRouter} from 'react-router-dom'
 import './App.css';
-// import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import LoggedInFooter from './components/LoggedInFooter'
 import LoggedOut from './LoggedOut/index'
-
 import DocApp from './type/DocApp'
 import UserApp from './type/UserApp'
 import {connect} from 'react-redux'
 import {currentUser} from './actions/userActions'
 import {currentDoctor} from './actions/doctorActions'
 
+
 class App extends React.Component {
 
   render(){
     const tkn = localStorage.getItem("jwt_token")
-
     return (
         <div className="App">
             <Route path="/" component={LoggedOut} />
