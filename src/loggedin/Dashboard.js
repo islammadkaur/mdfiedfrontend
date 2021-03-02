@@ -5,6 +5,10 @@ import Row from 'react-bootstrap/Row'
 
 class Dashboard extends React.Component {
     
+    // if ( window(url, '/user') {
+    //     window.open('/user/dashboard') 
+    // }
+    
     state = {
         first_name: this.props.currentUser.first_name,
         last_name: this.props.currentUser.last_name,
@@ -22,7 +26,7 @@ render(){
             <div className="dashboard" >
                 <Container fluid>
                     <Row>
-                        Hello, {this.state.first_name}
+                        <h2>Hello, {this.state.first_name}</h2>
                     </Row>
                 </Container>
             </div>

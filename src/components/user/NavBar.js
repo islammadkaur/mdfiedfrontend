@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 import Button from 'react-bootstrap/Button'
 import {withRouter, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
@@ -82,27 +83,23 @@ class NavBar extends React.Component {
 
                     <Col lg={4}>        
                         {this.props.currentUser ?
-                        <div className="text-right">    
-                        <DropdownButton
-                        menuAlign="right"
-                        variant="light"
-                        title={<PersonCircle/>}
-                        drop="down"
-                        size="md"
-                        id="dropdown-menu-align-right"
-                        >
-                        <Dropdown.Item eventKey="1" onClick={this.handleUserShowCard}>Account</Dropdown.Item>
-                        <Dropdown.Divider />
-                        <Dropdown.Item eventKey="4" onClick={this.handleSignOut}>Sign Out</Dropdown.Item>
-                        </DropdownButton>
-                        </div>
-                            :
-                            <div className="text-right" >
-                        <Button variant="info" style={{backgroundColor: '#f5f5f5', borderColor: '#fff'}} onClick={this.handleSignIn}>Sign In</Button>
-                        <Button variant="info" style={{backgroundColor: '#f5f5f5', borderColor: '#fff'}} onClick={this.handleSignUp}>Sign Up</Button>
-                        
-                        </div>
-                    }</Col>
+                        <div>
+                                <div className="text-right">  
+                                {/* <Nav><Link>My Appointments</Link></Nav>   */}
+                                    <DropdownButton menuAlign="right" variant="light" title={<PersonCircle/>} drop="down" size="md" id="dropdown-menu-align-right">
+                                        <Dropdown.Item eventKey="1" onClick={this.handleUserShowCard}>Account</Dropdown.Item>
+                                            <Dropdown.Divider />
+                                        <Dropdown.Item eventKey="4" onClick={this.handleSignOut}>Sign Out</Dropdown.Item>
+                                    </DropdownButton>
+                                </div>
+                         </div>
+                        :
+                                <div className="text-right" >
+                                    <Button variant="info" style={{backgroundColor: '#f5f5f5', borderColor: '#fff'}} onClick={this.handleSignIn}>Sign In</Button>
+                                    <Button variant="info" style={{backgroundColor: '#f5f5f5', borderColor: '#fff'}} onClick={this.handleSignUp}>Sign Up</Button>                    
+                                </div>
+                        }
+                    </Col>
                 </Container>
                 </Navbar.Collapse>
                 </Navbar>
