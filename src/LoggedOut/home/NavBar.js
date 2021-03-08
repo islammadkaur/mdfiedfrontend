@@ -11,11 +11,20 @@ import {PersonBoundingBox} from 'react-bootstrap-icons'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 
+
+
 class NavBar extends React.Component {
     constructor(){
         super();
         this.state = {
             showModal : false
+        }
+    }
+    componentDidMount() {
+        const tkn = localStorage.getItem("jwt_token")
+
+        if (!tkn) {
+            localStorage.removeItem("jwt_token")
         }
     }
 
@@ -29,8 +38,7 @@ class NavBar extends React.Component {
 
     handleSignOut = () => {
         localStorage.removeItem("jwt_token")
-        // this.props.SignOutDoctor()
-        this.props.history.push("/user")
+        // this.props.history.push("/")
     }
 
     handleDoctorShowCard = () => {
@@ -49,22 +57,26 @@ class NavBar extends React.Component {
         .then(() => {
             this.setState({ showModal: !this.state.showModal })
             // this.props.SignOutDoctor()
-            this.props.history.push('/md')
+            this.props.history.push('/user')
         })
     }
 
     handleHome = () => {
-        this.props.history.push('/')
+        const tkn = localStorage.getItem("jwt_token")
+
+       tkn ? this.props.history.push('/user/dashboard') : this.props.history.push('/')
     }
-    handleInsurancePage = () => {
-        this.props.history.push('/insurances')
-    }
+    // handleInsurancePage = () => {
+        // this.props.history.push('/insurances')
+    // }
     handleSpecialtyPage = () => {
         this.props.history.push('/specialties')
     }
 
 
     render(){
+        const tkn = localStorage.getItem("jwt_token")
+
         return(
             <div className="nav-div">
                 <Navbar collapseOnSelect style={{backgroundColor: '#3471eb', height: 80}} fixed="top">
@@ -91,7 +103,7 @@ class NavBar extends React.Component {
                         size="md"
                         id="dropdown-menu-align-right"
                         >
-                        <Dropdown.Item eventKey="1" onClick={this.handleInsurancePage}>Insurances</Dropdown.Item>
+                        <Dropdown.Item eventKey="1" onClick={() => this.props.ins()}>Insurances</Dropdown.Item>
                         <Dropdown.Divider />
                         <Dropdown.Item eventKey="4" onClick={this.handleSpecialtyPage}>Specialties</Dropdown.Item>
                     </DropdownButton>
@@ -114,7 +126,7 @@ class NavBar extends React.Component {
 
 
                 {/* MODAL THAT SHOWS ALL THE CURRENT Doctor INFORMATION */}
-                {this.props.currentDoctor ?
+                {tkn ?
                 <Modal show={this.state.showModal} dialogClassName="user-view" size="lg">
                     <Modal.Header closeButton onClick={() => this.handleDoctorShowCard()}>
                     <Modal.Title>{<PersonBoundingBox/>}  Your Information </Modal.Title>
@@ -178,12 +190,12 @@ class NavBar extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        // currentDoctor: state.currentDoctor,
+        currentUser: state.currentUser,
     }
 }
 
-const mapDispatchToProps = {
-    // SignOutDoctor: signOutDoctor,
-}
+// const mapDispatchToProps = {
+//     // SignOutDoctor: signOutDoctor,
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavBar))
+export default connect(mapStateToProps, null)(withRouter(NavBar))

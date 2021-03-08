@@ -1,6 +1,5 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
 import Button from 'react-bootstrap/Button'
 import {withRouter, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
@@ -9,17 +8,27 @@ import Container from 'react-bootstrap/Container'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import {signOutUser} from '../../actions/userActions'
-// import {signOutDoctor} from '../../actions/doctorActions'
 import {PersonCircle, PersonBoundingBox} from 'react-bootstrap-icons'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
-// import { currentDoctor } from '../actions/doctorActions';
+
 
 class NavBar extends React.Component {
     constructor(){
         super();
         this.state = {
             showModal : false
+        }
+    }
+
+    componentDidMount() {
+        const tkn = localStorage.getItem("jwt_token")
+
+        if (!tkn) {
+            localStorage.removeItem("jwt_token")
+            this.props.SignOutUser()
+            this.props.history.push("/")
+
         }
     }
 
@@ -63,6 +72,8 @@ class NavBar extends React.Component {
     }
 
     render(){
+        const tkn = localStorage.getItem("jwt_token")
+
 
         return(
             <div className="nav-div">
@@ -82,7 +93,7 @@ class NavBar extends React.Component {
                     </Col>
 
                     <Col lg={4}>        
-                        {this.props.currentUser ?
+                        {tkn ?
                         <div>
                                 <div className="text-right">  
                                 {/* <Nav><Link>My Appointments</Link></Nav>   */}

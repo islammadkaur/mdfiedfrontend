@@ -16,7 +16,7 @@ class ResultsCon extends Component {
     }
     render() {
       const clinics = this.state.clinics
-      console.log(clinics);
+    //   console.log(clinics);
         return (
             <div>
                 <Results clinic={clinics} />

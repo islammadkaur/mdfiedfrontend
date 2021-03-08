@@ -3,21 +3,22 @@ import {Route, Switch} from 'react-router-dom';
 import {withRouter} from 'react-router-dom'
 import NavBar from '../components/user/NavBar'
 import SignIn from '../components/user/SignIn'
-import Dashboard from '../loggedin/Dashboard'
+import Dashboard from '../components/user/Logged In/UserDashContainer/Dashboard'
 import SignUp from '../components/user/SignUp'
 import UserEditForm from '../components/user/UserEditForm'
 import {connect} from 'react-redux'
 import {currentUser} from '../actions/userActions'
+import SearchBar from '../components/user/Logged In/UserDashContainer/SearchBar'
+
 
 class UserApp extends React.Component {
 
   componentDidMount(){
     const tkn = localStorage.getItem("jwt_token")
-    const fetchUser = () => {
-      if (!tkn || !this.props.currentUser) {
-          localStorage.removeItem("jwt_token")
+      if (!tkn) {
+          localStorage.removeItem("jwt_token")   
           this.props.history.push("/user")
-        } 
+      } 
       else {
         fetch('http://localhost:3000/api/v1/current_user', {
             method: "GET",
@@ -30,22 +31,20 @@ class UserApp extends React.Component {
             this.props.currentUser(obj.user)
         })
       }
-    }
-    fetchUser()
-    console.log("something");
   }
 
   render(){
+    const tkn = localStorage.getItem("jwt_token")
+
 
     return (
         <div className="App">
         <NavBar />
           <Switch>
-            <Route exact path="/user" component={SignIn} />
-            <Route exact path="/user/signup" component={SignUp} />
-            <Route exact path="/user/dashboard" component={Dashboard} />
-            <Route exact path="/user/edit" component={UserEditForm} /> */}
-
+            <Route path="/user/signup" component={SignUp} />
+            {tkn ? <Route exact path="/user/dashboard" component={Dashboard} /> : <Route path="/user" component={SignIn} /> }
+            <Route path="/user/dashboard/new-appointment" component={SearchBar} />
+            <Route path="/user/edit" component={UserEditForm} /> 
           </Switch>
         </div>
     );

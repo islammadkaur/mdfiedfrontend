@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table'
 
 class Results extends Component {
   handleClick = (url) => {
-    window.open('/user', "_self");
+    window.location.assign('/user');
   }
   render() {
     const tableList = this.props.clinic.map(x =>  

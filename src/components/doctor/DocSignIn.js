@@ -2,7 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import {connect} from 'react-redux'
-import {signInDoctor} from '../actions/doctorActions'
+import {signInDoctor} from '../../actions/doctorActions'
 import {Spring} from 'react-spring/renderprops';
 
 import Card from 'react-bootstrap/Card'

@@ -1,10 +1,10 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {withRouter} from 'react-router-dom'
-import DocSignIn from '../components/DocSignIn'
-import DocSignUp from '../components/DocSignUp'
+import DocSignIn from '../components/doctor/DocSignIn'
+import DocSignUp from '../components/doctor/DocSignUp'
 import NavBar from '../components/doctor/NavBar'
-import DoctorDashboard from '../loggedin/DoctorDashboard'
+import DoctorDashboard from '../components/doctor/loggedin/DoctorContainer/DoctorDashboard'
 import {connect} from 'react-redux'
 import {currentDoctor} from '../actions/doctorActions'
 
@@ -12,11 +12,11 @@ class DocApp extends React.Component {
 
   componentDidMount(){
     const tkn = localStorage.getItem("jwt_token")
-console.log('doc app');
+// console.log('doc app');
     const fetchDoctor = () => {
         if (!tkn || !this.props.currentDoctor) {
             localStorage.removeItem("jwt_token")
-            this.props.history.push("/md")
+            // this.props.history.push("/md")
           } 
         else {
         fetch('http://localhost:3000/api/v1/current_doctor', {
@@ -36,6 +36,7 @@ console.log('doc app');
 }
 
   render(){
+    const tkn = localStorage.getItem("jwt_token")
 
     return (
         <div className="App">
@@ -43,7 +44,7 @@ console.log('doc app');
           <Switch>
             <Route exact path="/md" component={DocSignIn} />
             <Route exact path="/md/signup" component={DocSignUp} />
-            <Route exact path="/md/dashboard" component={DoctorDashboard} />
+            {tkn ? <Route exact path="/md/dashboard" component={DoctorDashboard} /> : <Route exact path="/md" component={DocSignIn} />}
           </Switch>
         </div>
     );

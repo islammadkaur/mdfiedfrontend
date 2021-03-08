@@ -4,7 +4,7 @@ import Alert from 'react-bootstrap/Alert'
 import Button from 'react-bootstrap/Button'
 import {Col} from 'react-bootstrap';
 import {connect} from 'react-redux'
-import {signUpDoctor} from '../actions/doctorActions'
+import {signUpDoctor} from '../../actions/doctorActions'
 import Modal from 'react-bootstrap/Modal'
 
 class DocSignUp extends React.Component {

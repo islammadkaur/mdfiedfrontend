@@ -1,11 +1,16 @@
 import React from 'react';
+// import Nav from 'react-bootstrap/Nav'
+// import SearchInput, {createFilter} from 'react-search-input'
 
-class SecondaryNavBar extends React.Component {
+
+
+
+class SearchBar extends React.Component {
 
  handleSubmit
         render() {
             return (
-                <div style={{marginTop:'2%'}}>
+                <div style={{marginTop:'10%'}}>
                     <form>
                     <input placeholder='Enter city or zip code here...' type="search" style={{fontSize: '25px',width: '70%', height: '50px', borderRadius: 25, marginLeft: '15%', textAlign: 'center'}}  onChange={this.searchUpdated}></input>
                     </form>
@@ -13,7 +18,7 @@ class SecondaryNavBar extends React.Component {
             );
         }
     }
-export default SecondaryNavBar
+export default SearchBar
 
 
 // const KEYS_TO_FILTERS = ['user.name', 'subject', 'dest.name']

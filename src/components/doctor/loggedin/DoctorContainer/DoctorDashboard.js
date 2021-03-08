@@ -16,7 +16,7 @@ class DoctorDashboard extends React.Component {
             <div className="dashboard" style={props} >
                 <Container fluid>
                 <Row>
-                    {/* <Col sm={4}><AccountsContainer history={this.props.history}/></Col> */}
+                    {}
                 </Row>
                 <Row>
 

@@ -19,7 +19,6 @@ class InsuranceContainer extends Component {
     }
     render() {
         const insurance = this.state.ins
-        // console.log(insurance);
         return (
             <div>
                 <InsuranceList ins={insurance}/>
