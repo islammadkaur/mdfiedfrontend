@@ -11,6 +11,7 @@ import ErrorPage from './type/ErrorPage'
 import {connect} from 'react-redux'
 import {currentUser} from './actions/userActions'
 import {currentDoctor} from './actions/doctorActions'
+import DateForm from './components/clock/dateform'
 
 class App extends React.Component {
   componentDidMount() {
@@ -40,13 +41,14 @@ class App extends React.Component {
     
     return (
         <div className="App">
-            <Switch>
+          <DateForm />
+            {/* <Switch>
             <Route path="/user" component={UserApp} />
             <Route path="/md" component={DocApp} />
             <Route path="/" component={LoggedOut} />            
             <Route component={ErrorPage} />
             </Switch>
-          {tkn ? <LoggedInFooter /> : <Footer/>}
+          {tkn ? <LoggedInFooter /> : <Footer/>} */}
         </div>
     );
   }

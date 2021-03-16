@@ -23,12 +23,10 @@ class NavBar extends React.Component {
 
     componentDidMount() {
         const tkn = localStorage.getItem("jwt_token")
-
         if (!tkn) {
             localStorage.removeItem("jwt_token")
             this.props.SignOutUser()
             this.props.history.push("/")
-
         }
     }
 

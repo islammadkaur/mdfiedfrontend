@@ -14,6 +14,7 @@ class UserEditForm extends React.Component {
         address: this.props.currentUser.address,
         city: this.props.currentUser.city,
         state: this.props.currentUser.state,
+        
         zipcode: this.props.currentUser.zipcode,
         error: ""
     }
