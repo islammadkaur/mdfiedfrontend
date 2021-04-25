@@ -41,14 +41,14 @@ class App extends React.Component {
     
     return (
         <div className="App">
-          <DateForm />
-            {/* <Switch>
+          {/* <DateForm /> */}
+            <Switch>
             <Route path="/user" component={UserApp} />
             <Route path="/md" component={DocApp} />
             <Route path="/" component={LoggedOut} />            
             <Route component={ErrorPage} />
             </Switch>
-          {tkn ? <LoggedInFooter /> : <Footer/>} */}
+          {tkn ? <LoggedInFooter /> : <Footer/>}
         </div>
     );
   }
