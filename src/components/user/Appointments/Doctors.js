@@ -5,6 +5,7 @@ const Doctors = (props) => {
         <div style={{textAlign:'center', paddingTop: '2%', paddingBottom: '2%', borderStyle: 'solid'}}> 
         <h2>Dr. {doc.first_name} {doc.last_name}</h2>
         <p>Specialty: {doc.specialties.map(p => p.name)}</p>
+        <p>Mondays: {doc.mondays.map(p => p.available ? `${p.start}-${p.end}` : 'N/A')} </p>
         <p>Gender: {doc.gender}</p>
         
         <img src={doc.image} alt={''} style={{height: '200px', width: '200px'}}></img>
