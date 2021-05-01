@@ -28,8 +28,8 @@ class DoctorContainer extends Component {
         console.log(docfiltered);
         return (
             <div>
-                {/* <Doctors docs={this.props.docfiltered}/> */}
-                {docfiltered}
+                <Doctors docs={this.state.docs}/>
+                {/* {docfiltered} */}
                 <p>Hello</p>
             </div>
         );
