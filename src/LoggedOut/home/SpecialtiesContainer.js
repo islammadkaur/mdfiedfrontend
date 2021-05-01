@@ -19,7 +19,6 @@ class SpecialtiesContainer extends Component {
     }
     render() {
         const specialties = this.state.specialties
-        // console.log(insurance);
         return (
             <div>
                 <SpecialtyList specialties={specialties}/>

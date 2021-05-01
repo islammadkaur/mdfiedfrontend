@@ -3,26 +3,9 @@ import DoctorContainer from '../../Appointments/DoctorContainer'
 
 
 class SearchBar extends React.Component {
-    // constructor(){
-    //     super()
 
-    //     this.state = {
-    //         docs: []
-    //     }
-    // }
-    // componentDidMount() {
-    //    const api = "http://localhost:3000/doctors/" 
-    //     fetch(api)
-    //     .then(res => res.json())
-    //     .then( docts  => {
-    //         this.setState({docs: docts})
-    //     })
-    // }
     
 render() {
-    // if (this.state.docs.monday.available) {
-        // console.log(this.state.docs);
-    // }
 
         return (
             <div style={{marginTop:'10%'}}>

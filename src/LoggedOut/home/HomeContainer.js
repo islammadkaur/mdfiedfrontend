@@ -26,6 +26,4 @@ const mapDispatchToProps = {
     currentUser: currentUser,
 }
 
-
-// export default HomeContainer;
 export default connect(null, mapDispatchToProps)(withRouter(HomeContainer));

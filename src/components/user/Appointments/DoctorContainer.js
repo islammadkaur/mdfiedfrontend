@@ -6,8 +6,10 @@ class DoctorContainer extends Component {
         super()
 
         this.state = {
-            docs: []
+            docs: [],
+            gender: []
         }
+
     }
     componentDidMount() {
        const api = "http://localhost:3000/doctors/" 
@@ -19,10 +21,15 @@ class DoctorContainer extends Component {
     }
     render() {
         console.log(this.state.docs);
+        const docfiltered = this.state.docs.map((doc, index) => {
+            return doc.gender === "Male" ? <div key={index} onePig={doc}/> : console.log("Not")
+            // let filter =÷ this.state.greased ? <button onClick={this.changeFilter}>Not Greased</button> : <button>Greased</button>
+        })
+        console.log(docfiltered);
         return (
             <div>
-                <Doctors docs={this.state.docs}/>
-                
+                {/* <Doctors docs={this.props.docfiltered}/> */}
+                {docfiltered}
                 <p>Hello</p>
             </div>
         );
