@@ -7,7 +7,8 @@ class DoctorContainer extends Component {
 
         this.state = {
             docs: [],
-            gender: []
+            gender: [],
+            specialty: ''
         }
 
     }
@@ -20,17 +21,34 @@ class DoctorContainer extends Component {
         })
     }
     render() {
-        console.log(this.state.docs);
-        const docfiltered = this.state.docs.map((doc, index) => {
-            return doc.gender === "Male" ? <div key={index} onePig={doc}/> : console.log("Not")
-            // let filter =÷ this.state.greased ? <button onClick={this.changeFilter}>Not Greased</button> : <button>Greased</button>
-        })
-        console.log(docfiltered);
+
+        const handleGender = (event) => {
+            this.setState({ gender: event.currentTarget.value})
+        }
+        const handleSpecialty = (event) => {
+            this.setState({ specialty: event.currentTarget.value})
+        }
+
+            // console.log(this.state.gender);
+            // console.log(this.state.specialty);
+            // let spec = this.state.docs.filter(p => p.specialties.name)
+            // let specname = spec.map(p => p.name)
+
+            const docs = this.state.docs
+            const spec = docs.filter(doc => doc.specialties)
+
+            // const spe = spec.filter(p => p.name == this.state.specialty)
+            // const specfilter = spec.filter(p => p.specialties.name == this.state.specialty)
+            
+
+            const genfilter = this.state.docs.filter(p => p.gender === this.state.gender)
+            const docfilter = this.state.docs
+
+            console.log(spec.map(p => p.specialties));
+
         return (
             <div>
-                <Doctors docs={this.state.docs}/>
-                {/* {docfiltered} */}
-                <p>Hello</p>
+                <Doctors docs={docfilter} gen={handleGender} spec={handleSpecialty}/>
             </div>
         );
     }
